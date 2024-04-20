@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:Trailblazer_Flutter/pages/main_home.dart';
+import 'package:Trailblazer_Flutter/pages/home/main_home.dart';
 import 'package:Trailblazer_Flutter/util/provider.dart';
 
 void main() {
