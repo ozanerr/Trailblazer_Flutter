@@ -1,5 +1,5 @@
+import 'package:Trailblazer_Flutter/pages/register/login.dart';
 import 'package:flutter/material.dart';
-import 'package:Trailblazer_Flutter/pages/detail_item/detail_item.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -92,7 +92,7 @@ class Onboarding extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => detailItem()));
+                                builder: (context) => login()));
                           },
                           child: Text("Get Started"),
                           style: ElevatedButton.styleFrom(

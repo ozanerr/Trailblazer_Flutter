@@ -17,7 +17,7 @@ class detailItem extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 40),
+          margin: EdgeInsets.symmetric(horizontal: 30),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
@@ -75,7 +75,7 @@ class detailItem extends StatelessWidget {
                           ])),
                     ],
                   ),
-                  Container(width: 93, height: 100, color: Colors.white),
+                  Container(width: 113, height: 100, color: Colors.white),
                   Column(
                     children: [
                       SizedBox(height: 70),
@@ -152,6 +152,7 @@ class detailItem extends StatelessWidget {
                       fontWeight: FontWeight.w600)),
               SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
                       onPressed: () {},
@@ -164,7 +165,6 @@ class detailItem extends StatelessWidget {
                               side: BorderSide(
                                   color: Color.fromARGB(255, 214, 214, 214),
                                   strokeAlign: 3)))),
-                  SizedBox(width: 17),
                   TextButton(
                       onPressed: () {},
                       child: Text("M"),
@@ -176,7 +176,6 @@ class detailItem extends StatelessWidget {
                               side: BorderSide(
                                   color: Color.fromARGB(255, 214, 214, 214),
                                   strokeAlign: 3)))),
-                  SizedBox(width: 17),
                   TextButton(
                       onPressed: () {},
                       child: Text("L"),

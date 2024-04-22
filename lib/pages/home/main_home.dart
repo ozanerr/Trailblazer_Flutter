@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:Trailblazer_Flutter/pages/buttombarpage/Fav_Screen.dart';
-import 'package:Trailblazer_Flutter/pages/buttombarpage/Home_Screen_fix.dart';
+import 'package:Trailblazer_Flutter/pages/buttombarpage/Home_Screen.dart';
 import 'package:Trailblazer_Flutter/pages/buttombarpage/Notif_Screen.dart';
 import 'package:Trailblazer_Flutter/pages/buttombarpage/Shop_Screen.dart';
 

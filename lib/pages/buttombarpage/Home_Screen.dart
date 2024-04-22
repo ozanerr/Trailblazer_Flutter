@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:Trailblazer_Flutter/util/coffe_type.dart';
 import 'package:provider/provider.dart';
 import 'package:Trailblazer_Flutter/util/coffee_tiles.dart';
 import 'package:Trailblazer_Flutter/util/provider.dart';
+// import 'package:tes_home_page/pages/buttombarpage/Profile_Screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  // ignore: use_super_parameters
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -33,14 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        // ignore: sized_box_for_whitespace
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
               Container(
-                height: 370,
+                height: 400,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -127,7 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Icon(Icons.search_rounded,
                                   color: Colors.white.withOpacity(0.8)),
                             ),
-                            // ignore: sized_box_for_whitespace
                             suffixIcon: Container(
                                 width: 40,
                                 height: 50,
@@ -150,8 +149,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      // ignore: prefer_const_constructors
-                      margin: EdgeInsets.only(left: 30, right: 30, top: 30),
+                      margin:
+                          const EdgeInsets.only(left: 30, right: 30, top: 30),
                       child: Container(
                         height: 150,
                         width: double.infinity,
@@ -230,10 +229,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // white background section
               Container(
-                height: 400,
-                // ignore: prefer_const_constructors
+                height: 370,
                 margin: EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       height: 50,
@@ -251,16 +251,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
-                    Container(
-                      height: MediaQuery.of(context)
-                          .size
-                          .height, // Contoh constraint tinggi
+                    SizedBox(height: 15),
+                    Expanded(
                       child: GridView.builder(
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          mainAxisSpacing: 5,
-                          crossAxisSpacing: 5,
+                          childAspectRatio: 0.6,
+                          crossAxisSpacing: 20,
                         ),
                         itemCount:
                             Provider.of<CoffeeProvider>(context).Coffeet.length,

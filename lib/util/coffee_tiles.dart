@@ -1,3 +1,4 @@
+import 'package:Trailblazer_Flutter/pages/detail_item/detail_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -11,68 +12,89 @@ class coffeeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        // padding: EdgeInsets.all(10), // reduce the padding
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height, // adjust the height
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12), color: Colors.grey),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //image
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 1),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  coffee.coffeeIMGPath,
-                  fit: BoxFit.cover,
-                ),
+      padding: EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // image
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => detailItem()));
+            },
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 130,
+              child: Container(
+                alignment: Alignment.topRight,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(coffee.coffeeIMGPath),
+                    ),
+                    borderRadius: BorderRadius.circular(12)),
               ),
             ),
-            //coffee name
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          //coffee name
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.only(left: 5, top: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   coffee.coffeeName,
                   style: TextStyle(
-                      fontSize: 14, // reduce the font size
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                SizedBox(height: 2), // reduce the spacing
                 Text(
                   coffee.coffeeDes,
                   style: TextStyle(
-                      fontSize: 12, // reduce the font size
-                      color: Colors.white),
+                    fontSize: 12,
+                    color: Color.fromARGB(255, 174, 174, 174),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //price
+                    Text(
+                      coffee.coffeePrice,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontFamily: "Sora",
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    //call to action button
+                    Container(
+                      height: 30,
+                      width: 30,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 198, 124, 74),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
-            //price
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 8), // reduce the padding
-              child: Text(
-                coffee.coffeePrice,
-                style: TextStyle(
-                    fontSize: 14, // reduce the font size
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-            //call to action button
-            SizedBox(height: 8.0),
-            FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.add),
-              backgroundColor: Colors.orange,
-            ),
-          ],
-        ),
+          )),
+        ],
       ),
     );
   }
