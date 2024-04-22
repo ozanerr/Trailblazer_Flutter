@@ -72,6 +72,12 @@ flutter:
     - assets/ngopi.png
     - assets/Frame 19.png
     - assets/milk.png
+    - assets/google.png
+    - assets/cappucho.png
+    - assets/cappuoatmi.png
+    - assets/kopi.png
+    - assets/tehkopi.png
+    - assets/starbak.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
