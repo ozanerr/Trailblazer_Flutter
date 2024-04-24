@@ -1,14 +1,16 @@
+import 'package:Trailblazer_Flutter/util/provider.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:readmore/readmore.dart';
 
 class detailItem extends StatelessWidget {
-  const detailItem({super.key});
+  const detailItem({Key? key, required this.coffee}) : super(key: key);
+  final Coffee coffee;
 
   @override
   Widget build(BuildContext context) {
-    String text =
-        "A cappuccino is the perfect balance of espresso, steamed milk and foam. This coffee is all about the structure and the even splitting of all elements into equal thirds. An expertly made cappuccino should be rich, but not acidic and have a mildly sweet flavouring from the milk.";
+    // String text =
+    // "A cappuccino is the perfect balance of espresso, steamed milk and foam. This coffee is all about the structure and the even splitting of all elements into equal thirds. An expertly made cappuccino should be rich, but not acidic and have a mildly sweet flavouring from the milk.";
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,18 +30,18 @@ class detailItem extends StatelessWidget {
                 width: 400,
                 height: 230,
                 child: ClipRRect(
-                  child: Image.asset("assets/ngopi.png", fit: BoxFit.fill),
+                  child: Image.asset(coffee.coffeeIMGPath, fit: BoxFit.fill),
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     children: [
                       RichText(
                           text: TextSpan(
-                              text: "Cappucino",
+                              text: coffee.coffeeName,
                               style: TextStyle(
                                   fontSize: 22,
                                   color: Colors.black,
@@ -48,7 +50,7 @@ class detailItem extends StatelessWidget {
                                   height: 2),
                               children: [
                             TextSpan(
-                                text: "\nwith Chocolate\n",
+                                text: "\n${coffee.coffeeDes}\n",
                                 style: TextStyle(
                                     fontSize: 13,
                                     color: Colors.blueGrey,
@@ -75,7 +77,6 @@ class detailItem extends StatelessWidget {
                           ])),
                     ],
                   ),
-                  Container(width: 113, height: 100, color: Colors.white),
                   Column(
                     children: [
                       SizedBox(height: 70),
@@ -126,7 +127,7 @@ class detailItem extends StatelessWidget {
               ),
               SizedBox(height: 10),
               ReadMoreText(
-                text,
+                coffee.coffeeDesc,
                 trimLines: 3,
                 textAlign: TextAlign.justify,
                 trimMode: TrimMode.Line,
@@ -203,6 +204,7 @@ class detailItem extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 40),
           height: 90,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
@@ -229,7 +231,7 @@ class detailItem extends StatelessWidget {
                   SizedBox(height: 5),
                 ],
               ),
-              SizedBox(width: 40),
+              // SizedBox(width: 40),
               TextButton(
                   onPressed: () {},
                   child: Text("Buy Now"),

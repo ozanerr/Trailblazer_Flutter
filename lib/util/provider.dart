@@ -6,6 +6,7 @@ class Coffee {
   String coffeeDes;
   String coffeePrice;
   String coffeeDesc;
+  int qty;
 
   Coffee({
     this.coffeeIMGPath = "",
@@ -13,6 +14,7 @@ class Coffee {
     this.coffeeDes = "",
     this.coffeePrice = "",
     this.coffeeDesc = "",
+    this.qty = 1,
   });
 }
 
@@ -51,4 +53,29 @@ class CoffeeProvider extends ChangeNotifier {
           '"Cappuccino with Chocolate" is a delightful fusion of two beloved flavors - the rich, robust taste of classic cappuccino combined with the indulgent sweetness of chocolate. This harmonious blend creates a unique and satisfying beverage that appeals to both coffee enthusiasts and chocolate lovers alike.',
     ),
   ];
+
+  List<Coffee> selectedItems = []; // Daftar item yang dipilih
+
+  // Fungsi untuk menambah item ke dalam daftar yang dipilih
+  void addItemToSelected(Coffee coffee) {
+    var existingItemIndex =
+        selectedItems.indexWhere((item) => item.coffeeDes == coffee.coffeeDes);
+
+    if (existingItemIndex != -1) {
+      // Jika item sudah ada, tambahkan qty-nya
+      selectedItems[existingItemIndex].qty++;
+    } else {
+      // Jika item belum ada, tambahkan item baru dengan qty awal 1
+      coffee.qty = 1;
+      selectedItems.add(coffee);
+    }
+
+    notifyListeners(); // memberitahu widget untuk memperbarui tampilan
+  }
+
+  // Metode untuk mendapatkan daftar item di keranjang
+  List<Coffee> getSelectedItems() {
+    return List.from(
+        selectedItems); // Mengembalikan salinan dari list keranjang
+  }
 }

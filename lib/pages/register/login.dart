@@ -1,4 +1,4 @@
-import 'package:Trailblazer_Flutter/pages/buttombarpage/Home_Screen.dart';
+import 'package:Trailblazer_Flutter/pages/home/main_home.dart';
 // import 'package:Trailblazer_Flutter/pages/home/main_home.dart';
 import 'package:Trailblazer_Flutter/pages/register/signup.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +171,7 @@ class _loginState extends State<login> {
                           Password.text == password) {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => const HomeScreen(),
+                            builder: (context) => const MainHome(),
                           ),
                         );
                       } else {
