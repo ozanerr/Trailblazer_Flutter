@@ -73,6 +73,23 @@ class CoffeeProvider extends ChangeNotifier {
     notifyListeners(); // memberitahu widget untuk memperbarui tampilan
   }
 
+  void reduceItemQty(Coffee coffee) {
+    var existingItem =
+        selectedItems.firstWhere((item) => item.coffeeDes == coffee.coffeeDes);
+
+    if (existingItem != -1) {
+      // Reduce qty if item is found
+      if (existingItem.qty > 1) {
+        existingItem.qty--;
+      } else {
+        // Remove item from the list if qty is 1
+        selectedItems.remove(existingItem);
+      }
+
+      notifyListeners(); // Notify listeners after modifying the list
+    }
+  }
+
   // Metode untuk mendapatkan daftar item di keranjang
   List<Coffee> getSelectedItems() {
     return List.from(
