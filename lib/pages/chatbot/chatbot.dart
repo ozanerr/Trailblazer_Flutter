@@ -28,6 +28,7 @@ class _ChatbotState extends State<Chatbot> {
         titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
         centerTitle: true,
         backgroundColor: Colors.black87,
+        foregroundColor: Colors.white,
       ),
       body: Container(
         child: Column(

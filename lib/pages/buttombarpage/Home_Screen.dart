@@ -1,3 +1,4 @@
+import 'package:Trailblazer_Flutter/pages/profile/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:Trailblazer_Flutter/util/coffe_type.dart';
@@ -86,17 +87,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           GestureDetector(
                             onTap: () {},
-                            child: Container(
-                                width: 50,
-                                height: 40,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: const Image(
-                                    image: NetworkImage(
-                                        "https://img.freepik.com/free-photo/side-view-unknown-man-posing_23-2149417555.jpg?size=626&ext=jpg&ga=GA1.1.1152997229.1709223401&semt=ais"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                )),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SettingPage()));
+                              },
+                              child: Container(
+                                  width: 50,
+                                  height: 40,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: const Image(
+                                      image: NetworkImage(
+                                          "https://img.freepik.com/free-photo/side-view-unknown-man-posing_23-2149417555.jpg?size=626&ext=jpg&ga=GA1.1.1152997229.1709223401&semt=ais"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )),
+                            ),
                           ),
                         ],
                       ),
